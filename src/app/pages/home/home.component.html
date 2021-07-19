@@ -34,24 +34,22 @@
     *ngFor="let region of regions; let i = index; let lastIndex = last"
   >
     <div class="row" *ngIf="i % 5 == 0">
-      <div *ngFor="let region of regions.slice(i, i + 5); let j = index">
-        <div
-          [ngClass]="
-            j == 2 || j === 4
-              ? 'col-md-4 col-lg-3 col-sm-12'
-              : 'col-md-4 col-lg-2 col-sm-12'
-          "
-        >
-          <app-region-card [region]="region"></app-region-card>
-        </div>
-
-        <div
-          class="col-md-4 col-lg-3 col-sm-12"
-          *ngIf="i + j === regions.length - 1"
-        >
-          <app-bar-chart [regions]="regions"></app-bar-chart>
-        </div>
+      <div
+        *ngFor="let region of regions.slice(i, i + 5); let j = index"
+        [ngClass]="
+          j == 2 || j === 4
+            ? 'col-md-6 col-lg-3 col-sm-12'
+            : 'col-md- col-lg-2 col-sm-12'
+        "
+      >
+        <app-region-card [region]="region"></app-region-card>
       </div>
     </div>
   </ng-container>
+
+  <!-- <div class="row">
+    <div class="col-12">
+      <app-bar-chart [regions]="regions"></app-bar-chart>
+    </div>
+  </div> -->
 </div>
