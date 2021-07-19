@@ -1,0 +1,189 @@
+// Navbar
+.toolbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: darkcyan;
+  color: white;
+  font-weight: 600;
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+.navbar-list {
+  list-style-type: none;
+  font-size: 10px;
+  margin: 0;
+}
+
+.navbar-toggler {
+  color: white;
+  font-size: 24px;
+}
+
+.navbar-brand {
+  padding: 0;
+}
+
+// Content
+.content {
+  overflow: auto;
+  height: 100vh;
+  background-image: url(../../../assets/img/background/world-map-bg.jpg);
+  background-size: cover;
+}
+
+.locale-card {
+  width: 18rem;
+  background-color: transparent;
+
+  .card-header {
+    background-color: rgba(2550, 2550, 2550, 0.9);
+  }
+  ul {
+    background-color: rgba(255, 255, 255, 0.8);
+    li {
+      background-color: transparent !important;
+    }
+  }
+}
+
+// Nav lang switcher
+#nav-lang-switch .knobs:before,
+#nav-lang-switch .knobs:after,
+#nav-lang-switch .knobs span {
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 7px;
+  padding-left: 8px;
+  padding-right: 18px;
+  line-height: 1;
+  padding-top: 7px;
+  padding-left: 7px;
+  padding-right: 19px;
+  border-radius: 2px;
+  transition: 0.3s ease all;
+}
+
+#nav-lang-switch .knobs:before {
+  content: "";
+  left: 0;
+  background-color: white;
+  height: 100%;
+  width: 50%;
+}
+
+#nav-lang-switch .knobs:after {
+  content: "EN";
+  right: 0;
+  color: white;
+}
+
+#nav-lang-switch .knobs span {
+  display: inline-block;
+  left: 0;
+  color: darkcyan;
+  z-index: 1;
+}
+
+#nav-lang-switch .checkbox:checked + .knobs span {
+  color: white;
+}
+
+#nav-lang-switch .checkbox:checked + .knobs:before {
+  right: 0;
+  background-color: darkslategray;
+}
+
+#nav-lang-switch .checkbox:checked + .knobs:after {
+  color: darkcyan;
+}
+
+#nav-lang-switch .checkbox:checked ~ .layer {
+  background-color: white;
+}
+
+.button-cover {
+  height: 100px;
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: 0 10px 20px -8px #c5d6d6;
+  border-radius: 4px;
+}
+
+.button-cover:before {
+  counter-increment: button-counter;
+  content: counter(button-counter);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #d7e3e3;
+  font-size: 12px;
+  line-height: 1;
+  padding: 5px;
+}
+
+.button-cover,
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.button {
+  position: relative;
+  width: 74px;
+  height: 36px;
+
+  overflow: hidden;
+}
+
+.button.r,
+.button.r .layer {
+  border-radius: 100px;
+}
+
+.button.b2 {
+  border-radius: 2px;
+  margin: 0;
+  height: auto;
+  width: 50px;
+  input {
+    margin: 0;
+    height: auto;
+  }
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: darkslategrey;
+  transition: 0.3s ease all;
+  z-index: 1;
+}

@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+  margin: 0px;
+}
+
+.tooltip-metrics {
+  border: 2px solid darkcyan !important;
+}
+
+.bar-chart-svg {
+  background-color: white !important;
+}

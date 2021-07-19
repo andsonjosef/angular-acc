@@ -1,0 +1,62 @@
+<div class="card locale-card mb-3" *ngIf="region">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-8">{{ region.name }}</div>
+      <div
+        class="col-4 text-danger attention-title"
+        *ngIf="region.totalOfLocalitiesNeedingAttention"
+      >
+        <em class="bi bi-exclamation-triangle-fill"></em>
+        <strong>{{ region.totalOfLocalitiesNeedingAttention }}</strong>
+      </div>
+    </div>
+  </div>
+
+  <ul class="list-group list-group-flush locale-list">
+    <li
+      class="list-group-item p-0"
+      contentType="template"
+      [options]="tooltipOptions"
+      [tooltip]="$any(companyDetails)"
+      *ngFor="let locality of region.localities"
+      (mouseenter)="localityHovered = locality"
+      (mouseleave)="localityHovered = undefined"
+      [ngClass]="
+        locality.totalOfCompaniesNeedAttention > 0 ? 'need-attention' : ''
+      "
+    >
+      <div class="d-flex bd-highlight">
+        <div
+          class="p-1 bd-highlight text-white p-0 text-center"
+          [ngClass]="
+            locality.totalOfCompaniesNeedAttention > 0
+              ? 'bg-danger'
+              : 'bg-success'
+          "
+          style="width: 2rem; height: 2rem"
+        >
+          <em
+            class="bi bi-exclamation-triangle-fill"
+            *ngIf="locality.totalOfCompaniesNeedAttention > 0"
+          ></em>
+        </div>
+        <div class="p-1 bd-highlight">{{ locality.name }}</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<ng-template #companyDetails>
+  <table aria-label="" *ngIf="localityHovered">
+    <tr>
+      <th id="name">Company Name</th>
+      <th id="metrics">Total Metrics</th>
+      <th id="attention">Metrics Needing Attention</th>
+    </tr>
+    <tr *ngFor="let company of localityHovered.companies">
+      <td>{{ company.name }}</td>
+      <td>{{ company.metrics.length }}</td>
+      <td>{{ company.totalMetricsNeedAttention }}</td>
+    </tr>
+  </table>
+</ng-template>
